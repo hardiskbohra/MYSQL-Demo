@@ -1,7 +1,6 @@
 module.exports = function(sequelize, DataTypes){
 
   var boardColumns = {
-    boardID : DataTypes.INTEGER,
     name : DataTypes.STRING
   };
 
@@ -9,8 +8,8 @@ module.exports = function(sequelize, DataTypes){
     classMethods: {}
   };
 
-  var board = sequelize.define("Board", boardColumns, boardConfig);
+  var Board = sequelize.define("Board", boardColumns, boardConfig);
 
-  return board;
+  return Board;
 
 };

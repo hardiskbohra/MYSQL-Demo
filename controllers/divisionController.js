@@ -2,24 +2,23 @@ var models = require('../models');
 
 var controller = {
 	getAll : function(cb,errcb) {
-		return models.User.findAll({})
+		return models.Division.findAll({})
 		.then(cb).error(errcb);
 	},
 	
-	add : function(user,cb,errcb) {
-		var newUser = models.User.build(user);
-		return newUser.save()
+	add : function(division,cb,errcb) {
+		var newDivision = models.Division.build(division);
+		return newDivision.save()
 		.then(cb).error(errcb);
 	},
 
-	update : function(id,updatedUser,cb,errcb) {
-		return models.User.update(updatedUser,{
-		    where: { id : id }
-		}).then(cb).error(errcb);
+	update : function(id,updatedDivision,cb,errcb) {
+		return models.Division.update(updatedDivision,{where: { id : id }})
+		.then(cb).error(errcb);
 	},
 
 	delete : function(id,cb,errcb) {
-		return models.User.destroy({where: {id : id}})
+		return models.Division.destroy({where: {id : id}})
 		.then(cb).error(errcb);
 	}
 

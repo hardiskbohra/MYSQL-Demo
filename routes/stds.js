@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var controller = require('../controllers/boardController');
+var controller = require('../controllers/stdController');
 
-// localhost:8888/boards/
+// localhost:8888/standards/
 router.get('/', function(req, res, next) {
 
   controller.getAll(function(result) {
@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
   });
 });
 
-// localhost:8888/boards/add
+// localhost:8888/standards/add
 router.post('/add', function(req, res, next){
 
   controller.add(req.body,
@@ -26,7 +26,7 @@ router.post('/add', function(req, res, next){
   );
 });
 
-// localhost:8888/boards/update/:id
+// localhost:8888/standards/update/:id
 router.put('/update/:id', function(req,res,next){
   
   controller.update(req.params.id,req.body,
@@ -39,7 +39,7 @@ router.put('/update/:id', function(req,res,next){
   );
 });
 
-// localhost:8888/boards/delete/:id
+// localhost:8888/standards/delete/:id
 router.delete('/delete/:id', function(req, res, next){
   controller.delete(req.params.id,
     function(result) {
